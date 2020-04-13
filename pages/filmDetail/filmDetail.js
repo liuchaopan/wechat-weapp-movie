@@ -93,6 +93,13 @@ Page({
 			url: '../searchResult/searchResult?url=' + encodeURIComponent(config.apiList.search.byTag) + '&keyword=' + keyword
 		})
 	},
+	playMovie: function(){
+		var sampleLink = this.data.filmDetail.videos[0].sample_link
+		var realLink = config.parseUrl + sampleLink
+		wx.navigateTo({
+			url: '../playMovie/payMovie?url=' +encodeURIComponent(realLink)
+		})
+	},
 	onPullDownRefresh: function() {
 		var data = {
 			id: this.data.filmDetail.id

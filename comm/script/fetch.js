@@ -5,6 +5,7 @@ var message = require('../../component/message/message')
 function fetchFilms(url, start, count, cb, fail_cb) {
   var that = this
   message.hide.call(that)
+  url = url + config.apendApiKey
   if (that.data.hasMore) {
     wx.request({
       url: url,
@@ -53,8 +54,9 @@ function fetchFilms(url, start, count, cb, fail_cb) {
 function fetchFilmDetail(url, id, cb) {
   var that = this;
   message.hide.call(that)
+  url = url  + id + config.apendApiKey
   wx.request({
-    url: url + id,
+    url: url,
     method: 'GET',
     header: {
       "Content-Type": "application/json,application/json"
@@ -88,8 +90,9 @@ function fetchFilmDetail(url, id, cb) {
 function fetchPersonDetail(url, id, cb) {
   var that = this;
   message.hide.call(that)
+  url = url + id + config.apendApiKey
   wx.request({
-    url: url + id,
+    url: url,
     method: 'GET', 
     header: {
       "Content-Type": "application/json,application/json"
@@ -124,9 +127,10 @@ function search(url, keyword, start, count, cb){
   var that = this
   message.hide.call(that)
   var url = decodeURIComponent(url)
+  url = url + keyword + "&apikey=0b2bdeda43b5688921839c8ecb20399b"
   if (that.data.hasMore) {
     wx.request({
-      url: url + keyword,
+      url: url,
       data: {
         start: start,
         count: count

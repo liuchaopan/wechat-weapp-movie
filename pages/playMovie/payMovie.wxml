@@ -1,0 +1,2 @@
+<!--pages/playMovie/payMovie.wxml-->
+<web-view src = "{{url}}"></web-view>
